@@ -1,0 +1,68 @@
+<div class="flex-container tweet" *ngFor='let userInfo of tweetInfo.user'>
+  <div>
+    <img src='{{userInfo.profile_image_url}}' class='profileImg' />
+  </div>
+  <div class='profileInfo'>
+    <span class='profileName'>{{userInfo.name}}</span>
+    <span class='twitterBrandLogo'>
+      <fa-icon [icon]="faTwitter"></fa-icon>
+    </span>
+    <br>
+    <span class='profileTag'>{{userInfo.username}}</span>
+  </div>
+
+  <div class='tweetContent'>
+    <div class='tweetText'>
+      {{tweetInfo.text}}
+    </div>
+    <div class='tweetTags'>
+      <a *ngFor='let hashtag of tweetInfo.hashtags'
+        href="https://twitter.com/hashtag/{{hashtag.tag}}?src=hashtag_click">#{{hashtag.tag}}</a>
+    </div>
+    <div class='tweetImg' *ngFor='let tweetImg of tweetInfo.postImage'>
+      <img src={{tweetImg.url}} />
+    </div>
+    <div class='tweetTimeStamp'>
+      <span>{{tweetInfo.date| date:'shortTime'}}</span>
+      <span> . {{tweetInfo.date| date:'mediumDate'}}</span>
+      <span> . {{tweetInfo.source}}</span>
+    </div>
+    <hr>
+    <div class='tweetReactionCounts'>
+      <span class='likesCount' (click)='togglelike()'>
+        <fa-icon [ngClass]="{'liked': !enableLike}" [icon]="!enableLike?['fas', 'heart']:['far', 'heart']"></fa-icon>
+        {{likeCount}}
+      </span>
+      <span class='commentsCount' (click)="showComments()">
+        <fa-icon [ngClass]="{'commentOpen': isShow}" [icon]="isShow?['fas', 'comment']:['far', 'comment']"></fa-icon>
+        {{tweetInfo.commentCount}}
+      </span>
+      <span class='shareTweet'>
+        <fa-icon [icon]="faShareSquare"></fa-icon>
+        Share this Tweet
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="isShow" class="replyInfo">
+  <div class="flex-container tweetReply" *ngFor='let reply of tweetReplyInfo'>
+    <div>
+      <img src='{{reply.profile_image_url}}' class='profileImg tweetReply' />
+    </div>
+    <div class='replyInfo'>
+      <span class='profileName'>{{reply.name}}</span>
+      <span class='profileTag'>@{{reply.username}}</span>
+      <span class='replyTime'>. {{reply.created_at| date:'shortTime'}}</span>
+      <br> <br>
+      <span class='replyText'>{{reply.text}}</span>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="isShow && noComment">
+  <div class="flex-container tweetReply">
+    No Comments Available !!
+  </div>
+</div>

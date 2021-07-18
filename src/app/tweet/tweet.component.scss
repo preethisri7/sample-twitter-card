@@ -1,0 +1,112 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid black;
+    border-radius: 12px;
+    border-color: #c4cfd6;
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 550px;
+    margin-left: 30%;
+    margin-top: 10px;
+    flex-basis: auto;
+    flex-direction: column;
+    flex-shrink: 0;
+    &.tweet,
+    &.tweetReply {
+        padding: 10px 10px 10px 26px;
+    }
+    &.tweetReply {
+        margin-top: 10px;
+    }
+    .profileImg {
+        background-color: black;
+        border-radius: 50%;
+        height: 75px;
+        width: 75px;
+        position: absolute;   
+        &.tweetReply {
+            height: 40px;
+            width: 40px;
+        }    
+    }
+    .profileInfo,
+    .replyInfo {
+    padding-left: 15%;
+    }
+
+    .twitterBrandLogo {
+    font-size: 24px;
+    color: rgb(29, 161, 242);
+    float: right;
+    }
+    
+  }
+
+  .tweetContent {
+    margin-top: 55px;
+    font-size: 15px;
+    .tweetTags {
+        padding: 25px 0 10px;
+        color: rgb(27, 149, 224);
+        font-size: 23px;    
+        a {
+            padding-left: 5px;
+            text-decoration: none;
+            &:nth-child(1) {
+                padding-left: none;
+            }
+            &:hover {
+                text-decoration:underline;
+            }
+        }        
+    }
+    .tweetImg {
+        img {
+            width: 539px;
+            border-radius: 12px;
+        }
+    }
+    .tweetTimeStamp {
+        font-size: 14px;
+        padding-top: 20px;
+    }
+    .tweetReactionCounts {
+        padding: 10px;
+        font-size: 16px;
+        color: rgb(91, 112, 131);
+        display: flex;
+        flex-direction: row;
+        span {
+            width: 15%;
+            &:last-child {
+                width: 50%;
+            }
+            &.likesCount:hover {
+                color: rgb(224, 36, 94);
+            }
+            &.commentsCount:hover {
+                color: rgba(29,161,242,1.00);
+            }
+            fa-icon {
+                padding-right: 5px;
+                &.liked {
+                    color: rgb(224, 36, 94);
+                }
+                &.commentOpen {
+                    color: rgba(29,161,242,1.00);
+                }
+            }
+        }
+    }
+  }
+
+  .replyInfo {
+      .replyTime{
+        padding-left: 5px;
+      }      
+  }
+
+
+  
+
+ 

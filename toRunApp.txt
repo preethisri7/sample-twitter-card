@@ -1,0 +1,10 @@
+Instructions To Run the App:
+
+Terminal1: start server: Run 'node server/server.js'
+Terminal2: start Angular: npm start
+
+Project runs on : http://localhost:4200
+
+By default http://localhost:4200 gets redirected to http://localhost:4200/status/1318536307216363520
+
+You can change the id for looking at various tweetcard http://localhost:4200/status/:id
